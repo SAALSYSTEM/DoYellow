@@ -1,0 +1,36 @@
+/* Layout: ruhige Arbeitsfläche. Seitenleiste | Arbeitsbereich | Kontextleiste. Gelb nur Marke/Aktion, Farbe nur Mandant. */
+:root {
+  --canvas: #fbfbfa;
+  --rail: #f4f4f1;
+  --surface: #ffffff;
+  --well: #f6f6f3;
+  --line: #e7e6e1;
+  --hair: #efeeea;
+  --ink: #1d1d1f;
+  --ink-2: #56565b;
+  --ink-3: #8b8b90;
+  --brand: #ffc400;
+  --brand-soft: #fff3c4;
+  --brand-ink: #1d1d1f;
+  color-scheme: light;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+/* App-Shell: gescrollt wird im Arbeitsbereich (main), nie die ganze Seite. Verhindert seitliches Scrollen auf dem Handy. */
+html, body { overflow: hidden; }
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+}
+.tabular { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 6px; }
+.scroll-thin { scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+.drawer-in { animation: drawerIn .18s ease-out; }
+@keyframes drawerIn { from { transform: translateX(16px); opacity: .6 } to { transform: none; opacity: 1 } }
